@@ -1,0 +1,3 @@
+rootProject.name = 'blog'
+include 'blog-api'
+include 'blog-core'

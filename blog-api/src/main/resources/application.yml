@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/blog
+    username: "ENC(MXSzwPcK004kkEOWJQU8bA==)"
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        #show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    root: info
+    org.hibernate.SQL: debug
+    #org.hibernate.type: trace
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+external:
+  api:
+    kakao:
+      url: "https://dapi.kakao.com"
+      api-key: "ENC(VA6v+IqPNT5aw6JSJpqcH98YKVxCke6jXtrGPyLtgFn8C1XPrPMrOreT1R2XLmM1O4cEApoyoI4=)"
+    naver:
+      url: "https://openapi.naver.com"
+      client-id: "ENC(XrUp1MKV9WSzZWNBdyz1JLVAdQTn1UCjQ5k1G4bdOGg=)"
+      client-secret: "ENC(8BqjQf/FDLd8sIlbDRxDGHDQ1xXiKLqe)"
