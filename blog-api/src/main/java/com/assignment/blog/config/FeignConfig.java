@@ -1,4 +1,4 @@
-package com.assignment.blog.common.config;
+package com.assignment.blog.config;
 
 import feign.Logger;
 import feign.Request;

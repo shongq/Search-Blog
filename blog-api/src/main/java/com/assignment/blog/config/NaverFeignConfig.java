@@ -1,4 +1,4 @@
-package com.assignment.blog.common.config;
+package com.assignment.blog.config;
 
 import feign.RequestInterceptor;
 import org.springframework.beans.factory.annotation.Value;

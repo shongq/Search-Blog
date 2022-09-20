@@ -1,4 +1,4 @@
-package com.assignment.blog.common.config;
+package com.assignment.blog.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

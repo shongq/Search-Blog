@@ -1,7 +1,7 @@
 package com.assignment.blog.service.naver;
 
 import com.assignment.blog.dto.naver.NaverSearchBlogRequest;
-import com.assignment.blog.common.config.NaverFeignConfig;
+import com.assignment.blog.config.NaverFeignConfig;
 import com.assignment.blog.dto.naver.NaverSearchBlogResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;

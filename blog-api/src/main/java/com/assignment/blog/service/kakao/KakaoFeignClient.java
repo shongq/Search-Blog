@@ -2,7 +2,7 @@ package com.assignment.blog.service.kakao;
 
 import com.assignment.blog.dto.SearchBlogRequest;
 import com.assignment.blog.dto.SearchBlogResponse;
-import com.assignment.blog.common.config.KakaoFeignConfig;
+import com.assignment.blog.config.KakaoFeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;

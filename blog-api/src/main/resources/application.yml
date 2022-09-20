@@ -3,8 +3,13 @@ server:
   shutdown: graceful
 
 spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   datasource:
     url: jdbc:h2:tcp://localhost/~/blog
+    #url: jdbc:h2:~/test;
     username: "ENC(MXSzwPcK004kkEOWJQU8bA==)"
     password:
     driver-class-name: org.h2.Driver

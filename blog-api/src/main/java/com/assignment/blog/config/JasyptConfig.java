@@ -1,4 +1,4 @@
-package com.assignment.blog.common.config;
+package com.assignment.blog.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
