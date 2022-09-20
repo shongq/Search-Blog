@@ -8,13 +8,11 @@ import com.assignment.blog.dto.naver.NaverSearchBlogResponse;
 import com.assignment.blog.dto.HandlerResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 @Slf4j
 @RequiredArgsConstructor
-@Service
 @HandlerOrder(order = 20)
-public class NaverSearchBlogAdapterService extends AbstractHandlerBase<SearchBlogRequest, HandlerResponse> {
+public class NaverSearchBlogAdapterHandler extends AbstractHandlerBase<SearchBlogRequest, HandlerResponse> {
     private final NaverFeignClient naverFeignClient;
 
     @Override
@@ -37,7 +35,7 @@ public class NaverSearchBlogAdapterService extends AbstractHandlerBase<SearchBlo
                         .searchBlogResponse(searchBlogResponse)
                         .build();
             } catch (Exception e) {
-                log.error("Naver Blog Search Invalid : " + e.getMessage());
+                log.error("Naver Blog Search Failed : " + e.getMessage());
                 result.setSearch(false);
                 result.setSuccess(false);
             }

@@ -36,7 +36,7 @@ public class BlogController {
         return ResponseEntity.create(searchBlogResponse);
     }
 
-    @GetMapping(value = "/keyword")
+    @GetMapping(value = "/list/keyword")
     public ResponseEntity<?> listTop10Keyword() {
         List<Keyword> top10Keywords;
         try {
