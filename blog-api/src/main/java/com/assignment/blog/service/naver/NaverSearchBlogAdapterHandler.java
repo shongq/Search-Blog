@@ -66,8 +66,8 @@ public class NaverSearchBlogAdapterHandler extends AbstractHandlerBase<SearchBlo
         boolean isEnd = !(page < endPage);
 
         return Meta.builder()
-                .total_count(response.getTotal())
-                .is_end(isEnd)
+                .totalCount(response.getTotal())
+                .isEnd(isEnd)
                 .build();
     }
 }
