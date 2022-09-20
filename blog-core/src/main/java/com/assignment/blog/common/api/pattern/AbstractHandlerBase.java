@@ -12,7 +12,7 @@ public abstract class AbstractHandlerBase<P extends IHandlerRequest,R extends IH
         return nextHandler != null;
     }
 
-    public R process( P param, R result){
+    public R process(P param, R result){
         long timeElapsed = 0L;
 
         Long start = System.currentTimeMillis();

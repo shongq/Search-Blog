@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
@@ -20,7 +22,7 @@ class KeywordRepositoryTest {
     @Test
     void testKeyword(){
         //given
-        Keyword keyword = new Keyword("나이키", 1);
+        Keyword keyword = new Keyword("테스트키워드", 1);
 
         //when
         Keyword savedKeyword = keywordRepository.save(keyword);
@@ -31,5 +33,29 @@ class KeywordRepositoryTest {
         assertThat(findKeyword.getWord()).isEqualTo(keyword.getWord());
         assertThat(findKeyword.getSearchCount()).isEqualTo(keyword.getSearchCount());
         assertThat(findKeyword).isEqualTo(keyword);
+    }
+    
+    @Test
+    void basicCRUD(){
+        Keyword keyword1 = new Keyword("테스트키워드1", 1);
+        Keyword keyword2 = new Keyword("테스트키워드2", 1);
+        keywordRepository.save(keyword1);
+        keywordRepository.save(keyword2);
+
+        Keyword findMember1 = keywordRepository.findById(keyword1.getId()).get();
+        Keyword findMember2 = keywordRepository.findById(keyword2.getId()).get();
+        assertThat(findMember1).isEqualTo(keyword1);
+        assertThat(findMember2).isEqualTo(keyword2);
+
+        List<Keyword> all = keywordRepository.findAll();
+        assertThat(all.size()).isEqualTo(2);
+
+        long count = keywordRepository.count();
+        assertThat(count).isEqualTo(2);
+
+        keywordRepository.delete(keyword1);
+        keywordRepository.delete(keyword2);
+        long deletedCount = keywordRepository.count();
+        assertThat(deletedCount).isEqualTo(0);
     }
 }

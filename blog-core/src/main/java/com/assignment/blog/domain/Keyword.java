@@ -16,11 +16,14 @@ public class Keyword {
     private Integer searchCount;
 
     protected Keyword() {
-
     }
 
     public Keyword(String word, Integer searchCount) {
         this.word = word;
         this.searchCount = searchCount;
+    }
+
+    public void plusSearchCount() {
+        this.searchCount += 1;
     }
 }
