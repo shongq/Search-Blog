@@ -9,7 +9,7 @@ spring:
       path: /h2-console
   datasource:
     #url: jdbc:h2:tcp://localhost/~/blog
-    url: jdbc:h2:~/test;
+    url: jdbc:h2:~/search-blog-hongq;
     username: "ENC(MXSzwPcK004kkEOWJQU8bA==)"
     password:
     driver-class-name: org.h2.Driver
