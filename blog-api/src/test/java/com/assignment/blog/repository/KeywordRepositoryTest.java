@@ -26,10 +26,9 @@ class KeywordRepositoryTest {
 
         //when
         Keyword savedKeyword = keywordRepository.save(keyword);
-        Keyword findKeyword = keywordRepository.findById(savedKeyword.getId()).get();
+        Keyword findKeyword = keywordRepository.findByWord(savedKeyword.getWord()).get();
 
         //then
-        assertThat(findKeyword.getId()).isEqualTo(keyword.getId());
         assertThat(findKeyword.getWord()).isEqualTo(keyword.getWord());
         assertThat(findKeyword.getSearchCount()).isEqualTo(keyword.getSearchCount());
         assertThat(findKeyword).isEqualTo(keyword);
@@ -42,8 +41,8 @@ class KeywordRepositoryTest {
         keywordRepository.save(keyword1);
         keywordRepository.save(keyword2);
 
-        Keyword findMember1 = keywordRepository.findById(keyword1.getId()).get();
-        Keyword findMember2 = keywordRepository.findById(keyword2.getId()).get();
+        Keyword findMember1 = keywordRepository.findByWord(keyword1.getWord()).get();
+        Keyword findMember2 = keywordRepository.findByWord(keyword2.getWord()).get();
         assertThat(findMember1).isEqualTo(keyword1);
         assertThat(findMember2).isEqualTo(keyword2);
 
