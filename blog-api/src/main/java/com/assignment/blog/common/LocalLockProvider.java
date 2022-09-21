@@ -12,11 +12,16 @@ public class LocalLockProvider implements ILockProvider {
     public ConcurrentHashMap<String, AtomicBoolean> concurrentHashMap = new ConcurrentHashMap<>();
 
     @Override
-    public AtomicBoolean isLock(String word) {
-        return concurrentHashMap.get(word) == null? new AtomicBoolean():concurrentHashMap.get(word);
+    public Boolean tryAcquireLock(String word) {
+        AtomicBoolean lockUsed = concurrentHashMap.computeIfAbsent(word, k -> new AtomicBoolean(false));
+        if (!lockUsed.get()) {
+            lockUsed.set(true);
+        }
+        return lockUsed.get();
     }
 
-    public void updateIsLock(String word, AtomicBoolean isLock) {
-        concurrentHashMap.put(word, isLock);
+    @Override
+    public void releaseLock(String word) {
+        concurrentHashMap.get(word).set(false);
     }
 }

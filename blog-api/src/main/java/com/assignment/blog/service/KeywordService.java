@@ -38,14 +38,16 @@ public class KeywordService {
      */
     @Transactional
     public void updateKeywordSearchCount(String word) {
-        localLockProvider.updateIsLock(word, new AtomicBoolean(true));
+//        while(!localLockProvider.tryAcquireLock(word)){};
+
         Optional<Keyword> keyword = keywordRepository.findByWord(word);
         if (keyword.isPresent())
             keyword.get().plusSearchCount();
         else {
             keywordRepository.save(new Keyword(word, 1));
         }
-        localLockProvider.updateIsLock(word, new AtomicBoolean(false));
+
+//        localLockProvider.releaseLock(word);
     }
 }
 

@@ -33,7 +33,7 @@ class KeywordServiceTest {
         int numberOfExcute = 100;
         ExecutorService service = Executors.newFixedThreadPool(5);
         CountDownLatch latch = new CountDownLatch(numberOfExcute);
-        String word = "카카오뱅크";
+        String word = "상상뱅크";
 
         //when
         for(int i=0 ; i<numberOfExcute ; i++) {
@@ -41,22 +41,34 @@ class KeywordServiceTest {
                 /*try {
                     keywordService.updateKeywordSearchCount(word);
                     System.out.println("성공");
-                } catch(ObjectOptimisticLockingFailureException oe) {
                     try {
-                        Thread.sleep(Thread.currentThread().getId() * 100);
+                        Thread.sleep(Thread.currentThread().getId() * 500);
+//                        long test = System.currentTimeMillis() % 10;
+//                        Thread.sleep(test * 500);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
+                } catch(ObjectOptimisticLockingFailureException oe) {
                     System.out.println("충돌감지 후 재시도");
                     keywordService.updateKeywordSearchCount(word);
                 } catch(Exception e) {
+                    try {
+                        Thread.sleep(Thread.currentThread().getId() * 100);
+//                        long test = System.currentTimeMillis() % 10;
+//                        Thread.sleep(test * 500);
+                    } catch (InterruptedException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     System.out.println(e.getMessage());
+                    keywordService.updateKeywordSearchCount(word);
                 }*/
 
+
+
                 try {
-                    while(!localLockProvider.isLock(word).getAndSet(true)) {
-                        keywordService.updateKeywordSearchCount(word);
-                    }
+                    while(!localLockProvider.tryAcquireLock(word)){};
+                    keywordService.updateKeywordSearchCount(word);
+                    localLockProvider.releaseLock(word);
                 } catch(Exception e) {
                     System.out.println(e.getMessage());
                 }
