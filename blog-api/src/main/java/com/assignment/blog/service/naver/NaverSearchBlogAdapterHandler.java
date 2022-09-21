@@ -46,6 +46,15 @@ public class NaverSearchBlogAdapterHandler extends AbstractHandlerBase<SearchBlo
         return result;
     }
 
+    /**
+     *네이버 open API 호출 후 Response 생성
+     *
+     * @param param
+     * @param page
+     * @param start
+     * @param sort
+     * @return SearchBlogResponse
+     */
     private SearchBlogResponse getSearchBlogResponse(SearchBlogRequest param, Integer page, int start, String sort) {
         NaverSearchBlogResponse naverSearchBlogResponse = naverFeignClient.getBlogs(NaverSearchBlogRequest.builder()
                 .query(param.query())
@@ -61,6 +70,13 @@ public class NaverSearchBlogAdapterHandler extends AbstractHandlerBase<SearchBlo
         return searchBlogResponse;
     }
 
+    /**
+     * 네이버 open API Response를 Meta객체로 변환
+     *
+     * @param response
+     * @param page
+     * @return Meta
+     */
     private Meta getMetaFromResponse(NaverSearchBlogResponse response, Integer page) {
         int endPage = (int) Math.ceil(response.getTotal() / response.getDisplay());
         boolean isEnd = !(page < endPage);

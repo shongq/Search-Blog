@@ -19,8 +19,8 @@ public class Keyword implements Serializable {
     @Id @GeneratedValue
     private Long id;
 
-    private String word;
-    private Integer searchCount;
+    private String word;    //키워드
+    private Integer searchCount;    //키워드 검색 수
 
     public Keyword(String word, Integer searchCount) {
         this.word = word;

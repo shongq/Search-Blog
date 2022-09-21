@@ -1,7 +1,6 @@
 package com.assignment.blog.dto;
 
 import com.assignment.blog.common.api.pattern.IHandlerResponse;
-import com.assignment.blog.dto.SearchBlogResponse;
 import lombok.*;
 
 @Setter
@@ -9,8 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HandlerResponse implements IHandlerResponse {
-    private boolean isSuccess;
-    private boolean isSearch;
+    private boolean isSuccess;  //핸들러 성공 여부
+    private boolean isSearch;   //검색 성공 여부
     @Getter
     private SearchBlogResponse searchBlogResponse;
 

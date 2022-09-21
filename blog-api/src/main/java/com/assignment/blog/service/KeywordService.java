@@ -20,7 +20,11 @@ public class KeywordService {
 
     private final KeywordRepository keywordRepository;
 
-
+    /**
+     * SearchCount가 큰 순서대로 10개의 키워드 리스트 조회
+     *
+     * @return List<Keyword>
+     */
     @Cacheable(value = "findTop10Keywords")
     public List<Keyword> findTop10Keywords() {
         return keywordRepository.findTop10ByOrderBySearchCountDesc();

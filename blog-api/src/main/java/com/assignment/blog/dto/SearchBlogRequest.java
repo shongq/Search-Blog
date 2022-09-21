@@ -14,7 +14,7 @@ import javax.validation.constraints.Max;
 public class SearchBlogRequest implements IHandlerRequest {
     @NotNull
     private String query;   //검색 키워드
-    private String sort;
+    private String sort;    //결과 문서 정렬 방식
     @Max(50)
     private Integer size;   //페이지당 출력할 데이터 개수
     @Max(50)//결과 정렬 방식

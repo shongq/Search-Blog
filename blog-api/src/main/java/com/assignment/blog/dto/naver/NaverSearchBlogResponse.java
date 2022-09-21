@@ -16,9 +16,9 @@ import java.util.List;
 public class NaverSearchBlogResponse {
 
     @JsonFormat(timezone = "GMT+9")
-    private String lastBuildDate;
-    private Integer total;
-    private Integer start;
-    private Integer display;
+    private String lastBuildDate;   //검색 결과를 생성한 시간
+    private Integer total;  //총 검색 결과 개수
+    private Integer start;  //검색 시작 위치
+    private Integer display;    //한 번에 표시할 검색 결과 개수
     private List<Document> items;
 }

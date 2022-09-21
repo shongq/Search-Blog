@@ -24,6 +24,12 @@ public class BlogController {
     private final ISearchBlogService iSearchBlogService;
     private final KeywordService keywordService;
 
+    /**
+     * 키워드를 통한 블로그 검색
+     *
+     * @param request
+     * @return ResponseEntity<?>
+     */
     @GetMapping(value = "/search")
     public ResponseEntity<?> serachBlog(@Valid SearchBlogRequest request) {
         SearchBlogResponse searchBlogResponse;
@@ -37,6 +43,11 @@ public class BlogController {
         return ResponseEntity.create(searchBlogResponse);
     }
 
+    /**
+     * 인기 검색어 목록 조회 (TOP 10)
+     *
+     * @return ResponseEntity<?>
+     */
     @GetMapping(value = "/list/keyword")
     public ResponseEntity<?> listTop10Keyword() {
         List<Keyword> top10Keywords;
