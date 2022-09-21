@@ -30,6 +30,7 @@ public class BlogController {
         try {
             searchBlogResponse = iSearchBlogService.searchBlogs(request);
         } catch (Exception e) {
+            log.error(e.getMessage());
             return ResponseEntity.createError("블로그 검색에 실패했습니다.", 500);
         }
 
@@ -42,6 +43,7 @@ public class BlogController {
         try {
             top10Keywords = keywordService.findTop10Keywords();
         } catch (Exception e) {
+            log.error(e.getMessage());
             return ResponseEntity.createError("인기 검색어 목록 조회에 실패했습니다.", 500);
         }
 

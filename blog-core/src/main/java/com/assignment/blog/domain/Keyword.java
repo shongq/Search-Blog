@@ -3,13 +3,12 @@ package com.assignment.blog.domain;
 import lombok.Getter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Version;
+import java.io.Serializable;
 
 @Entity
 @Getter
-public class Keyword {
+public class Keyword implements Serializable {
 
     /*@Id @GeneratedValue
     private Long id;*/
