@@ -20,7 +20,7 @@ public class UpdateKeywordHandler extends AbstractHandlerBase<SearchBlogRequest,
     private final LocalLockProvider localLockProvider;
 
     @Override
-    protected HandlerResponse resolve(SearchBlogRequest param, HandlerResponse result) {
+    public HandlerResponse resolve(SearchBlogRequest param, HandlerResponse result) {
         try {
             String word = param.getQuery();
             while(!localLockProvider.tryAcquireLock(word)){};

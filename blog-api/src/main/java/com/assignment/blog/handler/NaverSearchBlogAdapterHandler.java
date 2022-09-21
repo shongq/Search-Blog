@@ -6,18 +6,20 @@ import com.assignment.blog.dto.*;
 import com.assignment.blog.dto.naver.NaverSearchBlogRequest;
 import com.assignment.blog.dto.naver.NaverSearchBlogResponse;
 import com.assignment.blog.dto.HandlerResponse;
-import com.assignment.blog.service.naver.NaverFeignClient;
+import com.assignment.blog.service.interfaces.NaverFeignClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @RequiredArgsConstructor
+@Service
 @HandlerOrder(order = 20)
 public class NaverSearchBlogAdapterHandler extends AbstractHandlerBase<SearchBlogRequest, HandlerResponse> {
     private final NaverFeignClient naverFeignClient;
 
     @Override
-    protected HandlerResponse resolve(SearchBlogRequest param, HandlerResponse result) {
+    public HandlerResponse resolve(SearchBlogRequest param, HandlerResponse result) {
         if(!result.isSearch()) {
             try {
                 Integer page = param.getPage();

@@ -1,4 +1,4 @@
-package com.assignment.blog.service.kakao;
+package com.assignment.blog.service.interfaces;
 
 import com.assignment.blog.dto.SearchBlogRequest;
 import com.assignment.blog.dto.SearchBlogResponse;

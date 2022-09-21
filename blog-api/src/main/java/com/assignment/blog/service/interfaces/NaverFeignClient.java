@@ -1,4 +1,4 @@
-package com.assignment.blog.service.naver;
+package com.assignment.blog.service.interfaces;
 
 import com.assignment.blog.dto.naver.NaverSearchBlogRequest;
 import com.assignment.blog.config.NaverFeignConfig;
