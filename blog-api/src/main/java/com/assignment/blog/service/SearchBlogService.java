@@ -3,7 +3,7 @@ package com.assignment.blog.service;
 import com.assignment.blog.dto.SearchBlogRequest;
 import com.assignment.blog.dto.SearchBlogResponse;
 import com.assignment.blog.dto.HandlerResponse;
-import com.assignment.blog.chain.SearchBlogChain;
+import com.assignment.blog.handler.chain.SearchBlogChain;
 import com.assignment.blog.service.interfaces.ISearchBlogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

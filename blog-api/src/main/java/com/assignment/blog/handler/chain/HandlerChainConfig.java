@@ -1,11 +1,11 @@
-package com.assignment.blog.chain;
+package com.assignment.blog.handler.chain;
 
 import com.assignment.blog.common.api.LocalLockProvider;
 import com.assignment.blog.service.KeywordService;
-import com.assignment.blog.service.UpdateKeywordHandler;
+import com.assignment.blog.handler.UpdateKeywordHandler;
 import com.assignment.blog.service.kakao.KakaoFeignClient;
-import com.assignment.blog.service.kakao.KakaoFeignHandler;
-import com.assignment.blog.service.naver.NaverSearchBlogAdapterHandler;
+import com.assignment.blog.handler.KakaoFeignHandler;
+import com.assignment.blog.handler.NaverSearchBlogAdapterHandler;
 import com.assignment.blog.service.naver.NaverFeignClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.assignment.blog.chain;
+package com.assignment.blog.handler.chain;
 
 import com.assignment.blog.common.api.pattern.AbstractHandlerBase;
 import com.assignment.blog.common.api.pattern.AbstractHandlerChain;

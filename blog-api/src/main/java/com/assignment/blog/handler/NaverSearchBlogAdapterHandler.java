@@ -1,4 +1,4 @@
-package com.assignment.blog.service.naver;
+package com.assignment.blog.handler;
 
 import com.assignment.blog.common.api.pattern.AbstractHandlerBase;
 import com.assignment.blog.common.api.pattern.HandlerOrder;
@@ -6,6 +6,7 @@ import com.assignment.blog.dto.*;
 import com.assignment.blog.dto.naver.NaverSearchBlogRequest;
 import com.assignment.blog.dto.naver.NaverSearchBlogResponse;
 import com.assignment.blog.dto.HandlerResponse;
+import com.assignment.blog.service.naver.NaverFeignClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

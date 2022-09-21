@@ -2,6 +2,7 @@ package com.assignment.blog.service;
 
 import com.assignment.blog.common.api.LocalLockProvider;
 import com.assignment.blog.dto.SearchBlogRequest;
+import com.assignment.blog.handler.UpdateKeywordHandler;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,8 @@ class KeywordServiceTest {
     @Autowired
     LocalLockProvider localLockProvider;
 
-    @Autowired UpdateKeywordHandler updateKeywordHandler;
+    @Autowired
+    UpdateKeywordHandler updateKeywordHandler;
 
     @Test
     @DisplayName("키워드 검색 수 업데이트 시 동시성 이슈에 대한 처리")
