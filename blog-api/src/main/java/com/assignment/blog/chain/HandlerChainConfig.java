@@ -1,5 +1,6 @@
 package com.assignment.blog.chain;
 
+import com.assignment.blog.common.api.LocalLockProvider;
 import com.assignment.blog.service.KeywordService;
 import com.assignment.blog.service.UpdateKeywordHandler;
 import com.assignment.blog.service.kakao.KakaoFeignClient;
@@ -19,13 +20,14 @@ public class HandlerChainConfig {
     private final KakaoFeignClient kakaoFeignClient;
     private final NaverFeignClient naverFeignClient;
     private final KeywordService keywordService;
+    private final LocalLockProvider localLockProvider;
 
     @Bean
     public SearchBlogChain searchBlogChain() {
         return new SearchBlogChain(
                 new KakaoFeignHandler(kakaoFeignClient),
                 new NaverSearchBlogAdapterHandler(naverFeignClient),
-                new UpdateKeywordHandler(keywordService)
+                new UpdateKeywordHandler(keywordService, localLockProvider)
         );
     }
 }

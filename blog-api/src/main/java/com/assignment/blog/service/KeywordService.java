@@ -1,6 +1,5 @@
 package com.assignment.blog.service;
 
-import com.assignment.blog.common.LocalLockProvider;
 import com.assignment.blog.domain.Keyword;
 import com.assignment.blog.repository.KeywordRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -21,7 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class KeywordService {
 
     private final KeywordRepository keywordRepository;
-    private final LocalLockProvider localLockProvider;
+
 
     @Cacheable(value = "findTop10Keywords")
     public List<Keyword> findTop10Keywords() {
@@ -40,16 +38,12 @@ public class KeywordService {
     @CacheEvict(value = "findTop10Keywords", allEntries = true)
     @Transactional
     public void updateKeywordSearchCount(String word) {
-//        while(!localLockProvider.tryAcquireLock(word)){};
-
         Optional<Keyword> keyword = keywordRepository.findByWord(word);
-        if (keyword.isPresent())
+        if (keyword.isPresent()) {
             keyword.get().plusSearchCount();
-        else {
+        } else {
             keywordRepository.save(new Keyword(word, 1));
         }
-
-//        localLockProvider.releaseLock(word);
     }
 }
 
