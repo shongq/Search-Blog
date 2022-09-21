@@ -5,6 +5,7 @@ import com.assignment.blog.domain.Keyword;
 import com.assignment.blog.repository.KeywordRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,7 @@ public class KeywordService {
      *
      * @param word
      */
+    @CacheEvict(value = "findTop10Keywords", allEntries = true)
     @Transactional
     public void updateKeywordSearchCount(String word) {
 //        while(!localLockProvider.tryAcquireLock(word)){};
