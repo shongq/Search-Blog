@@ -71,3 +71,4 @@ Response는 ResponseEntity로 통일시켰습니다. 또한 `Service, Handler도
 3. ehcache : api 결과값 캐싱을 위해 사용 (단일 서버 구성이기 때문에 레디스를 사용하지 않고 간단히 사용할 수 있는 ehcache 활용)
 4. Jackson : Request, Response 컨트롤을 위해 사용
 5. p6spy : JPQL쿼리의 파라미터를 조회하기 위해 사용
+6. jasypt : 프로퍼티를 암호화하기 위해 사용
