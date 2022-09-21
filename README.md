@@ -8,7 +8,7 @@ GET http://{apiDomain}/blog/search
 Parameters
 |Name|Type|Description||Required|
 |------|---|---|---|
-|query|String|검샐을 원하는 질의어|O|
+|query|String||O|
 |sort|String||X|
-|page|Integer|결과 페이지 번호, 1과 50사이, 기본값 1|X|
-|size|Integer|한 페이지에 보여질 문서 수, 1과 50, 기본값 10|X|
+|page|Integer|1|X|
+|size|Integer||X|
