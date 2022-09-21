@@ -41,6 +41,6 @@ public class Keyword implements Serializable, Persistable<String> {
 
     @Override
     public boolean isNew() {
-        return searchCount==null;
+        return searchCount==1;
     }
 }
