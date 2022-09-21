@@ -64,6 +64,9 @@ Response는 ResponseEntity로 통일시켰습니다. 또한 `Service, Handler도
 만약, 실제 운영에서 사용하기 위해 개발한다면 다중서버 구성일 것이므로 결과값을 Redis에 저장하고 불러오는 방법으로 구현할 것 같습니다.
 3. _동시성 이슈 발생 가능_ : `ConcurrentHashMap`의 key로 검색되는 키워드를 저장하고 value로 키워드에 대한 처리여부를 저장하여 동시성 제어를 구현하였습니다.
    (LocalLockProvider.java)
+4. _카카오 블로그 검색 API에 장애가 발생한경우 네이버 블로그 검색 API를 통해 데이터 제공_ : `Chain of Responsibility 디자인패턴을 적용`하여 카카오 블로그 검색 API
+호출 결과에 따라 네이버 블로그 검색 API를 호출하거나 호출하지 않게 하였습니다.
+5. _멀티 모듈 구성_ : 서브모듈 blog-api, blog-core로 나누어 모듈 구성하였습니다.
 
 ### * 사용한 오픈소스
 1. 하이버네이트 : JPA 구현체로 사용
